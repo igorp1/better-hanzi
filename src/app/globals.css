@@ -1,0 +1,336 @@
+:root {
+    --bg: #000;
+    --fg: #fff;
+    --line: #1f1f1f;
+    --line-soft: #151515;
+    --surface: #070707;
+    --surface-2: #050505;
+    --muted: #9a9a9a;
+    --input-muted: #7c7c7c;
+    --future: #2e2e2e;
+    --radius: 2px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    min-height: 100%;
+    font-family: "Kai", "Kaiti SC", "STKaiti", "KaiTi", serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 28px 24px 40px;
+}
+
+.title {
+    margin: 0;
+    font-size: 54px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.homeLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.mainColumn {
+    display: grid;
+    gap: 14px;
+}
+
+.panel {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: linear-gradient(180deg, var(--surface), var(--surface-2));
+}
+
+.sectionTitle {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.searchRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+}
+
+.searchRow.singleInput {
+    grid-template-columns: 1fr;
+}
+
+.textInput {
+    width: 100%;
+    min-height: 62px;
+    border: 2px solid var(--input-muted);
+    border-radius: var(--radius);
+    padding: 0 18px;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 40px;
+    line-height: 1;
+}
+
+.textInput::placeholder {
+    color: var(--input-muted);
+}
+
+.textInput:hover,
+.textInput:focus,
+.textInput:focus-visible {
+    border-color: #fff;
+    outline: none;
+}
+
+.btn,
+.historyItem,
+.tile {
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--fg);
+}
+
+.btn,
+.historyItem {
+    min-height: 44px;
+    padding: 0 12px;
+    cursor: pointer;
+    font-size: 84px;
+}
+
+.btn:hover,
+.btn:focus-visible,
+.historyItem:hover,
+.historyItem:focus-visible,
+.tile:hover,
+.tile:focus-visible {
+    background: #1f1f1f;
+    outline: none;
+}
+
+.btn[disabled],
+.tile[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.stripRow,
+.charGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tile {
+    min-width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    font-size: 44px;
+    line-height: 1;
+    cursor: pointer;
+    color: #d7d7d7;
+}
+
+.tile.is-disabled {
+    color: var(--muted);
+    border-color: #5f5f5f;
+}
+
+.tile.is-active {
+    background: #1f1f1f;
+    color: #fff;
+}
+
+.historyPanel {
+    border: 0;
+    padding: 0;
+}
+
+.historyList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.historyItem {
+    width: auto;
+    text-align: left;
+    padding: 8px 12px;
+    border-radius: 4px;
+    min-height: auto;
+    border: 0;
+    background: transparent;
+    border-radius: var(--radius);
+    font-size: 80px;
+    line-height: 1.2;
+    color: #ececec;
+    transition:
+        color 120ms ease,
+        background-color 120ms ease;
+}
+
+.historyItem:hover,
+.historyItem:focus-visible {
+    color: #fff;
+    outline: none;
+}
+
+.historyTitle {
+    margin: 0 0 18px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.mutedText {
+    color: var(--muted);
+    margin: 0;
+}
+
+.viewerPage {
+    display: grid;
+    gap: 20px;
+}
+
+.viewerTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.viewerStack {
+    display: grid;
+    gap: 16px;
+}
+
+.viewerPanel {
+    display: grid;
+    gap: 18px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.stepNavRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.stepArrow {
+    min-width: 56px;
+    min-height: 56px;
+    padding: 0;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.viewerCanvasWrap {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    padding: 26px;
+    min-height: 520px;
+    background: radial-gradient(circle at 50% 35%, #0b0b0b 0%, #050505 60%);
+}
+
+.viewerSvg {
+    width: min(100%, 620px);
+    height: auto;
+    background: transparent;
+    border: 0;
+}
+
+.dotStepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 18px;
+}
+
+.dotButton {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border-radius: 999px;
+    border: 2px solid #6f6f6f;
+    background: transparent;
+    cursor: pointer;
+}
+
+.dotButton.is-done {
+    border-color: #cfcfcf;
+}
+
+.dotButton.is-active {
+    border-color: #fff;
+    background: #fff;
+}
+
+.dotButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.linkBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 34px;
+}
+
+.viewerPage > .panel {
+    border: 0;
+    border-radius: 12px;
+    background: #060606;
+    padding: 10px 12px;
+}
+
+@media (max-width: 900px) {
+    .historyPanel {
+        max-height: none;
+    }
+}
