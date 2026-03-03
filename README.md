@@ -1,4 +1,6 @@
-## Hanzi Stroke Trainer
+## Better Hanzi
+
+![Demo gif](.github/assets/demo.gif)
 
 Next.js 16 + Bun app for stroke-order practice using `hanzi-writer-data`.
 

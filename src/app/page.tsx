@@ -45,7 +45,6 @@ export default function HomePage() {
   return (
     <main className="page homePage">
       <div className="homeLayout mainColumn">
-        <h1 className="title">Hanzi Stroke Trainer</h1>
         <SearchBar
           value={inputValue}
           onChange={setInputValue}

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hanzi Stroke Trainer",
+  title: "Better Hanzi",
   description: "Minimal Hanzi stroke-order trainer",
 };
 
