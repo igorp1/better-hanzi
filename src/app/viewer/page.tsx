@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 
 import { StrokeViewer } from "@/components/StrokeViewer";
 import { SentenceStrip } from "@/components/SentenceStrip";
@@ -23,7 +23,7 @@ const parseIndex = (value: string | null): number => {
   return Number.isInteger(parsed) ? parsed : Number.NaN;
 };
 
-export default function ViewerPage() {
+function ViewerPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -158,5 +158,21 @@ export default function ViewerPage() {
         onSelectStroke={goToStroke}
       />
     </main>
+  );
+}
+
+export default function ViewerPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="page viewerPage">
+          <section className="panel">
+            <p className="mutedText">Loading viewer...</p>
+          </section>
+        </main>
+      }
+    >
+      <ViewerPageContent />
+    </Suspense>
   );
 }

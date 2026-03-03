@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "sync:hanzi": "bun run scripts/sync-hanzi-data.mjs",
+    "predev": "bun run sync:hanzi",
     "dev": "next dev",
+    "prebuild": "bun run sync:hanzi",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
